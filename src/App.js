@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
+  const maxDate = new Date();
+  const maxDateMonth = maxDate.getMonth() < 10 ? `0${maxDate.getMonth()}` : `${maxDate.getMonth()}`
+  const maxDateDay = maxDate.getDate() < 10 ? `0${maxDate.getDate()}` : `${maxDate.getDate()}`
+  const maxDateFormatted = `${maxDate.getFullYear()}-${maxDateMonth}-${maxDateDay}`
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button>Search</button>
+      <input type="date" min="0001-01-01" max={maxDateFormatted}/>
     </div>
   );
 }
